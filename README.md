@@ -29,4 +29,40 @@ After filtering out extreme ages (>80+) and downsampling some ages from the 3 da
 
 The main pre-processing step was to standardize the input images. As shown below, the images had different zoom levels, as some captured the face only, while others captured the shoulders or more.
 
-![alt-text-1](images/face_only.png "title-1") ![alt-text-2](images/face_and_shoulders.png "title-2")
+![face only](images/face_only.png) ![shoulders](images/face_and_shoulders.png)
+
+Thus, a face detection algorithm (https://pypi.org/project/fdet/) was deployed to automatically detect and crop out just the face. The image was then padded with black pixels to form a square and resized to (150, 150).
+
+## Training
+
+Just 1% of the data was set aside for testing to maximise the model training (and 1000+ test images was sufficient). Multiple different data augmentation techniques were applied randomly to the data, such as: rotation, cropping, flipping, etc. 
+
+The EfficientNet B4 was downloaded from https://github.com/lukemelas/EfficientNet-PyTorch, and it was modified slightly to give a regression and classification output for age and gender. Transfer learning was used by keeping the ImageNet weights and training from there.
+
+The model was trained for 60 epochs and the best epoch at epoch 50 was saved.
+
+## Testing
+
+The same face detection step was applied to the test images before inference, and the results were quite decent for a model with only 20 million parameters. It had an MAE of 4.8 (and std of 4.3) for age, and an accuracy of 96.8% for gender.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
