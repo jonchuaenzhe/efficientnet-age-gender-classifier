@@ -1,7 +1,7 @@
 July 2020
 # Modified Efficientnet for Age and Gender Prediction
 
-Profiling people from images will enable malls, shops, etc. to generate better insight from their video data. This project modifies an EfficientNet B4 to create a CNN model that can predict the age and gender from a person's face.
+Profiling people from images will enable malls, shops, etc. to generate better insight from video data. This project modifies an EfficientNet B4 to create a CNN model that can predict the age and gender from a person's face.
 
 Refer to this README for a quick summary of the implementation, or view the notebooks for an in-depth description. The data and some data-cleaning steps are not included in this repo, as the data is open-source and the steps are straightforward. This repo focuses on the techniques used in developing this model.
 
