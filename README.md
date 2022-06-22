@@ -15,7 +15,7 @@ Gender Accuracy: 96.8%
 
 In 2020, the EfficientNet was the state-of-the-art CNN architecture for image classification. Its 8 versions, each of different size, boasts significantly higher accuracies over similarly sized models.
 
-![EfficientNet-Performance](efficientnet_performance.png)
+![EfficientNet-Performance](images/efficientnet_performance.png)
 
 ## Model Overview
 
@@ -23,5 +23,10 @@ An EfficientNet B4 is modified to produce a double-headed model, with one a regr
 
 ## Data & Preprocessing
 
-Data was taken from the Wikipedia (https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/, >50,000), AFAD Face (https://afad-dataset.github.io/, >50,000), and UTKFace (https://susanqq.github.io/UTKFace/, >20,000) Datasets. They generally consist of faces of people ages 0 to 80 with age and gender labels.
+Data was taken from the Wikipedia (https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/, >50,000), AFAD Face (https://afad-dataset.github.io/, >50,000), and UTKFace (https://susanqq.github.io/UTKFace/, >20,000) Datasets. They generally consist of faces of people ages 0 to 80 with age and gender labels. 
 
+After filtering out extreme ages (>80+) and downsampling some ages from the 3 datasets, a DataFrame "age_gender_data.csv" was created to store the image paths and labels.
+
+The main pre-processing step was to standardize the input images. As shown below, the images had different zoom levels, as some captured the face only, while others captured the shoulders or more.
+
+![alt-text-1](imgaes/face_only.png "title-1") ![alt-text-2](imgaes/face_and_shoulders.png "title-2")
