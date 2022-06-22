@@ -29,4 +29,4 @@ After filtering out extreme ages (>80+) and downsampling some ages from the 3 da
 
 The main pre-processing step was to standardize the input images. As shown below, the images had different zoom levels, as some captured the face only, while others captured the shoulders or more.
 
-![alt-text-1](imgaes/face_only.png "title-1") ![alt-text-2](imgaes/face_and_shoulders.png "title-2")
+![alt-text-1](images/face_only.png "title-1") ![alt-text-2](images/face_and_shoulders.png "title-2")
