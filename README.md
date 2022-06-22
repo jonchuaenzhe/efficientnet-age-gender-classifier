@@ -1,5 +1,5 @@
 July 2020
-# Modified Efficientnet for Age and Gender Prediction
+# Modified EfficientNet for Age and Gender Prediction
 
 Profiling people from images will enable malls, shops, etc. to generate better insight from video data. This project modifies an EfficientNet B4 to create a CNN model that can predict the age and gender from a person's face.
 
