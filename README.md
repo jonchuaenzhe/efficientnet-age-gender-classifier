@@ -1,9 +1,7 @@
 July 2020
 # Modified EfficientNet for Age and Gender Prediction
 
-Profiling people from images will enable malls, shops, etc. to generate better insight from video data. This project modifies an EfficientNet B4 to create a CNN model that can predict the age and gender from a person's face.
-
-Refer to this README for a quick summary of the implementation, or view the notebooks for an in-depth description. The data and some data-cleaning steps are not included in this repo, as the data is open-source and the steps are straightforward. This repo focuses on the techniques used in developing this model.
+This project modifies an EfficientNet B4 to create a CNN model that can predict the age and gender from a person's face, that could enable malls, shops, etc. to generate better insight from video data. Refer to this README for a quick summary of the implementation, or view the notebooks for an in-depth description.
 
 Below are the out-of-sample test results:
 ```
@@ -11,13 +9,11 @@ Test Sample Count: 1041
 Age Mean Average Error (Standard Deviation): 4.8 (4.3)
 Gender Accuracy: 96.8%
 ```
-## EfficientNet Background
+## Model Overview
 
 In 2020, the EfficientNet was the state-of-the-art CNN architecture for image classification. Its 8 versions, each of different size, boasts significantly higher accuracies over similarly sized models.
 
 ![EfficientNet-Performance](images/efficientnet_performance.png)
-
-## Model Overview
 
 An EfficientNet B4 is modified to produce a double-headed model, with one a regressor (age) and the other a classifier (gender). It is pre-loaded with ImageNet weights and fine tuned with the 100,000+ face samples.
 
@@ -35,34 +31,10 @@ Thus, a face detection algorithm (https://pypi.org/project/fdet/) was deployed t
 
 ## Training
 
-Just 1% of the data was set aside for testing to maximise the model training (and 1000+ test images was sufficient). Multiple different data augmentation techniques were applied randomly to the data, such as: rotation, cropping, flipping, etc. 
+Just 1% of the data was set aside for testing to maximise the model training. Multiple different data augmentation techniques were applied randomly to the data, such as: rotation, cropping, flipping, etc. 
 
 The EfficientNet B4 was downloaded from https://github.com/lukemelas/EfficientNet-PyTorch, and it was modified slightly to give a regression and classification output for age and gender. Transfer learning was used by keeping the ImageNet weights and training from there.
 
-The model was trained for 60 epochs and the best epoch at epoch 50 was saved.
-
 ## Testing
 
-The same face detection step was applied to the test images before inference, and the results were quite decent for a model with only 20 million parameters. It had an MAE of 4.8 (and std of 4.3) for age, and an accuracy of 96.8% for gender.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The face detection step was applied to the test images before inference, and the results were good for a model with only 20 million params. It had an MAE of 4.8 (and std of 4.3) for age, and an accuracy of 96.8% for gender.
